@@ -2,16 +2,12 @@ import boto3
 import time
 from botocore.exceptions import ClientError
 from flask import Flask, render_template, request, redirect, url_for, session, jsonify
-from flask_bcrypt import Bcrypt
-from flask_session import Session
-
+import bcrypt
 # Initialisation de Flask
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'super_secret_key'
 app.config['SESSION_TYPE'] = 'filesystem'
-Session(app)
 
-bcrypt = Bcrypt(app)
 
 # Configuration AWS DynamoDB
 ACCESS_KEY_ID = "AKIAYWBJYLC5L2Q5HF4N"
